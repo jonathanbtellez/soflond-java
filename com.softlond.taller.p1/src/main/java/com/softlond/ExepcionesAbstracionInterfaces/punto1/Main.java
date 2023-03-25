@@ -1,6 +1,4 @@
 package com.softlond.ExepcionesAbstracionInterfaces.punto1;
-
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -30,56 +28,41 @@ public class Main {
 
         do{
             System.out.println("Bienvenido!");
-            try{
-                System.out.println("Cuantas boletas desea comprar?");
-                numeroBoletos = scanner.nextInt();
-                System.out.println("En que resolucion desea verla pelicula?");
-                System.out.println("1. 2D");
-                System.out.println("2. 3D");
-                tipoPelicula = scanner.nextInt();
-            }catch (InputMismatchException e){
-                e.printStackTrace();
-            }
+            System.out.println("Cuantas boletas desea comprar?");
+            numeroBoletos = scanner.nextInt();
+            System.out.println("En que resolucion desea verla pelicula?");
+            System.out.println("1. 2D");
+            System.out.println("2. 3D");
+            tipoPelicula = scanner.nextInt();
 
-            if(tipoPelicula < 0 || tipoPelicula >2){
+            if(tipoPelicula < 1 || tipoPelicula > 2){
                 System.out.println("Tipo de pelicula incorrecto");
-            }
-
-            try {
-                valorAPagar = comprarBoletas(numeroBoletos, tipoPelicula);
-            } catch (Exception e){
-                e.printStackTrace();
+            }else {
+                try {
+                    valorAPagar = comprarBoletas(numeroBoletos, tipoPelicula);
+                } catch (ExcepcionCine e){
+                    e.printStackTrace();
+                }
             }
             if(valorAPagar > 0){
-                System.out.println("Gracias por su compra de "+numeroBoletos+" debe cancelar "+valorAPagar);
+                String resolucion = tipoPelicula == 1 ? "2D" : "3D";
+                System.out.println("Gracias por su compra de "+numeroBoletos+" boletas en "+ resolucion+" cancelar "+valorAPagar);
             }else{
                 System.out.println("Fallo la compra numero de boletos = " +numeroBoletos+ ", maximo 5 por persona, valor a pagar "+valorAPagar);
             }
-            try {
-                System.out.println("Desea hacer otra compra ?");
-                System.out.println("Pulsa 1 para si o 0 para no");
-                continuar = scanner.nextInt();
-
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            System.out.println("Desea hacer otra compra ?");
+            System.out.println("Pulsa 1 para si o 0 para no");
+            continuar = scanner.nextInt();
         }while (continuar == 1);
-
-
-
-
     }
-
     static int comprarBoletas(int numero, int tipoPelicula) throws ExcepcionCine {
-        int resultado;
-
+        int resultado ;
         double valorBoleta = tipoPelicula == 1 ? 5000: 10000;
 
-        if(numero > 5){
-            throw new ExcepcionCine("Excede el numero de boletas por persona");
-        }else{
-            numero = 0;
+        if(numero  > 0 && numero < 6){
             resultado = (int) (numero * valorBoleta);
+        }else{
+            throw new ExcepcionCine("Excede el numero de boletas por persona");
         }
         return resultado;
     }
