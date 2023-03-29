@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0791d38e-511c-4daf-bb2b-2d8650faeefb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto1/ExcepcionCine.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto1/ExcepcionCine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto1/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto2/Estudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto2/Estudiante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/FuncionesDispositivo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/FuncionesDispositivo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/Mp3.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/Mp3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/Mp4.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/Mp4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/MusicaReproductor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/MusicaReproductor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/Wav.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto3/Wav.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/CuentaAhorros.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/CuentaAhorros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/CuentaCorriente.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/CuentaCorriente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/CuentaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/CuentaException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ExepcionesAbstracionInterfaces/punto4/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/excepciones/CalcularNumeros.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/excepciones/CalcularNumeros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/excepciones/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/excepciones/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p1/Factura.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p1/Factura.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p1/Precio.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p1/Precio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p2/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p2/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p2/CuentaAhorros.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p2/CuentaAhorros.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p2/CuentaCorriente.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p2/CuentaCorriente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/apartamentos/ApartaEstudio.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/apartamentos/ApartaEstudio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/apartamentos/Apartamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/apartamentos/Apartamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/apartamentos/ApartamentoFamiliar.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/apartamentos/ApartamentoFamiliar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/casas/Casa.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/casas/Casa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/casas/CasaConjunto.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/casas/CasaConjunto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/casas/CasaIndependiene.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/casas/CasaIndependiene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/casas/CasaRural.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/casas/CasaRural.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/casas/CasaUrbana.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/casas/CasaUrbana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/inmueble/Inmueble.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/inmueble/Inmueble.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/inmueble/InmuebleVivienda.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/inmueble/InmuebleVivienda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/locales/LocalComercial.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/locales/LocalComercial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/taller/p3/locales/Oficinas.java" beforeDir="false" afterPath="$PROJECT_DIR$/taller/p3/locales/Oficinas.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+  </component>
+  <component name="ProjectId" id="2NfMfNC8hMkgKfa69VQfbLvTpuf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/cursos/Java/Softlond/Java/com.softlond.taller.p1"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0791d38e-511c-4daf-bb2b-2d8650faeefb" name="Changes" comment="" />
+      <created>1680050791781</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680050791781</updated>
+    </task>
+    <servers />
+  </component>
+</project>
