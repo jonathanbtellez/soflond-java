@@ -2,8 +2,6 @@ package com.softlond.tallerPersistencia;
 
 import com.softlond.tallerPersistencia.GUI.GUI_Cuenta;
 import com.softlond.tallerPersistencia.models.Cuenta;
-import com.softlond.tallerPersistencia.models.CuentaAhorros;
-import com.softlond.tallerPersistencia.models.CuentaCorriente;
 import com.softlond.tallerPersistencia.models.CuentaException;
 import com.softlond.tallerPersistencia.service.CuentaService;
 

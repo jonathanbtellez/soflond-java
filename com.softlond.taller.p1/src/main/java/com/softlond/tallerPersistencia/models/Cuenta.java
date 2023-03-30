@@ -40,10 +40,10 @@ public abstract class Cuenta {
         this.propietario = propietario;
     }
 
-    public abstract int retirar(int saldo) throws CuentaException;
-    public abstract int depositar(int saldo);
+    public abstract void retirar(int saldo) throws CuentaException;
+    public abstract void depositar(int saldo) throws CuentaException;
     public abstract List<Cuenta> transferir(Cuenta cuenta, int saldo) throws CuentaException;
-    public abstract void recibir(int saldo);
+    public abstract void recibir(int saldo) throws CuentaException;
     public abstract String getTipoCuenta();
 
     public void setTipoCuenta(String tipoCuenta) {

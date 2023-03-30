@@ -130,7 +130,11 @@ public class GUI_Cuenta {
         Cuenta cuenta = cuentaService.buscarCuenta(scanner.nextInt());
         System.out.println("ingrese el valor que desea consignar");
         int saldo = scanner.nextInt();
-        cuenta.depositar(saldo);
+        try {
+            cuenta.depositar(saldo);
+        } catch (CuentaException e) {
+            System.out.println("Error al consignar " + e.getMessage());
+        }
         cuentaService.actualizarCuenta(cuenta);
     }
     public void consultarSaldo() {

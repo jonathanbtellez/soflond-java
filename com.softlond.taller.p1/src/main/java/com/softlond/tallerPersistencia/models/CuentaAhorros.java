@@ -17,61 +17,70 @@ public class CuentaAhorros extends Cuenta {
         return tipo;
     }
     @Override
-    public int retirar(int saldo) throws CuentaException {
-        int saldoRetirado;
-        if(this.getSaldo() >= saldo ){
-            setNumeroRetiros(1);
-            if(getNumeroRetiros() <= 3){
-                this.setSaldo(getSaldo()-saldo);
-            }else{
-                this.setSaldo((int) (getSaldo()-(saldo*0.01)));
-                this.setSaldo(getSaldo()-saldo);
-            }
-            System.out.println("Retiro exitoso Su nuevo saldo es = " + getSaldo());
-            saldoRetirado = saldo;
-        }else {
-            throw new CuentaException("Saldo insuficiente, intente de nuevo");
-        }
-        return saldoRetirado;
-    }
-
-    @Override
-    public int depositar(int saldo) {
-        int saldoConsignado;
-        int cashBack = (int) (saldo * 0.05);
-        this.setNumeroDepositos(1);
-        if(this.getNumeroDepositos() <= 2){
-            this.setSaldo(getSaldo() + saldo + cashBack);
-            saldoConsignado = saldo + cashBack;
-        }else {
-            this.setSaldo(getSaldo() + saldo);
-            saldoConsignado = saldo;
-        }
-        System.out.println("Consignacion exitosa por: "+saldoConsignado);
-        return saldoConsignado;
-    }
-
-    @Override
-    public List<Cuenta> transferir(Cuenta cuenta, int saldo) {
-        List<Cuenta> cuentas = new ArrayList<>();
-        int interes = (int) (saldo*0.015);
-
-        if(cuenta.getSaldo() >= saldo){
-            if(this.getTipoCuenta().equals(cuenta.getTipoCuenta())){
-                System.out.println("Saldo antes de la transferencia: "+this.getSaldo());
-                this.setSaldo(this.getSaldo() - saldo);
-                System.out.println("Transferencia exitosa su saldo es :" + this.getSaldo());
-                cuenta.recibir(cuenta.getSaldo() + saldo);
-                System.out.println("La cuenta destino recibio: "+saldo);
-            }else{
-                System.out.println("Saldo antes de la transferencia: "+this.getSaldo());
-                this.setSaldo((this.getSaldo() - saldo)- interes);
-                System.out.println("Transferencia exitosa su saldo es :" + this.getSaldo());
-                cuenta.recibir(this.getSaldo() + saldo);
-                System.out.println("La cuenta destino recibio: "+saldo);
-            }
+    public void retirar(int saldo) throws CuentaException {
+        if(saldo < 0){
+            throw new CuentaException("El valor a retirar debe ser mayor a 0");
         }else{
-            System.out.println("Saldo insuficiente");
+            if(this.getSaldo() >= saldo ){
+                setNumeroRetiros(1);
+                if(getNumeroRetiros() <= 3){
+                    this.setSaldo(getSaldo()-saldo);
+                }else{
+                    this.setSaldo((int) (getSaldo()-(saldo*0.01)));
+                    this.setSaldo(getSaldo()-saldo);
+                }
+                System.out.println("Retiro exitoso Su nuevo saldo es = " + getSaldo());
+            }else {
+                throw new CuentaException("Saldo insuficiente, intente de nuevo");
+            }
+        }
+
+    }
+
+    @Override
+    public void depositar(int saldo) throws CuentaException {
+        if(saldo < 0){
+            throw new CuentaException("El valor a depositar debe ser mayor a 0");
+        }else{
+            int cashBack = (int) (saldo * 0.05);
+            this.setNumeroDepositos(1);
+            if(this.getNumeroDepositos() <= 2){
+                this.setSaldo(getSaldo() + saldo + cashBack);
+                System.out.println("Consignacion exitosa por: "+(saldo+cashBack));
+            }else {
+                this.setSaldo(getSaldo() + saldo);
+                System.out.println("Consignacion exitosa por: "+saldo);
+            }
+        }
+    }
+
+    @Override
+    public List<Cuenta> transferir(Cuenta cuenta, int saldo) throws CuentaException {
+
+
+        List<Cuenta> cuentas = new ArrayList<>();
+        if (saldo < 0 ){
+            System.out.println("El valor a transferir debe ser mayor a 0");
+        }else {
+            int interes = (int) (saldo * 0.015);
+
+            if (cuenta.getSaldo() >= (saldo + interes)) {
+                if (this.getTipoCuenta().equals(cuenta.getTipoCuenta())) {
+                    System.out.println("Saldo antes de la transferencia: " + this.getSaldo());
+                    this.setSaldo(this.getSaldo() - saldo);
+                    System.out.println("Transferencia exitosa su saldo es :" + this.getSaldo());
+                    cuenta.recibir(cuenta.getSaldo() + saldo);
+                    System.out.println("La cuenta destino recibio: " + saldo);
+                } else {
+                    System.out.println("Saldo antes de la transferencia: " + this.getSaldo());
+                    this.setSaldo((this.getSaldo() - saldo) - interes);
+                    System.out.println("Transferencia exitosa su saldo es :" + this.getSaldo());
+                    cuenta.recibir(this.getSaldo() + saldo);
+                    System.out.println("La cuenta destino recibio: " + saldo);
+                }
+            } else {
+                System.out.println("Saldo insuficiente");
+            }
         }
         cuentas.add(this);
         cuentas.add(cuenta);
@@ -79,7 +88,11 @@ public class CuentaAhorros extends Cuenta {
     }
 
     @Override
-    public void recibir(int saldo) {
-        this.setSaldo(getSaldo() + saldo);
+    public void recibir(int saldo) throws CuentaException {
+        if (saldo < 0){
+            throw new CuentaException("El valor a recibir debe ser mayor a 0");
+        }else{
+            this.setSaldo(getSaldo() + saldo);
+        }
     }
 }
