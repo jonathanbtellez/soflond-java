@@ -41,13 +41,13 @@ public class CuentaAhorros extends Cuenta {
         int cashBack = (int) (saldo * 0.05);
         this.setNumeroDepositos(1);
         if(this.getNumeroDepositos() <= 2){
-            this.setSaldo(this.getSaldo() + cashBack);
-            saldoConsignado = this.getSaldo() + cashBack;
+            this.setSaldo(getSaldo() + saldo + cashBack);
+            saldoConsignado = saldo + cashBack;
         }else {
             this.setSaldo(getSaldo() + saldo);
             saldoConsignado = saldo;
         }
-        System.out.println("Consignacion exitosa por: "+saldoConsignado+" su saldo es :" + this.getSaldo());
+        System.out.println("Consignacion exitosa por: "+saldoConsignado);
         return saldoConsignado;
     }
 
