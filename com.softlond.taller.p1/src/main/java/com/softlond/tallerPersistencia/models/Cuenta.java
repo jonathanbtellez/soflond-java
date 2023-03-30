@@ -1,5 +1,7 @@
 package com.softlond.tallerPersistencia.models;
 
+import java.util.List;
+
 /**
  * Se requiere crear un Software para un banco, este maneja diferentes tipos de cuentas,
  * Ahorro y Corriente, tienen como atributos el numero de cuenta, saldo, y un propietario. Se
@@ -20,6 +22,17 @@ public abstract class Cuenta {
     private String propietario;
     private int numeroDepositos;
     private int numeroRetiros;
+    private int transferenciasOtrasCuentas;
+
+    public Cuenta(int numeroCuenta, String tipoCuenta, int saldo, String propietario, int numeroDepositos, int numeroRetiros, int transferenciasOtrasCuentas) {
+        this.numeroCuenta = numeroCuenta;
+        this.tipoCuenta = tipoCuenta;
+        this.saldo = saldo;
+        this.propietario = propietario;
+        this.numeroDepositos = numeroDepositos;
+        this.numeroRetiros = numeroRetiros;
+        this.transferenciasOtrasCuentas = transferenciasOtrasCuentas;
+    }
 
     public Cuenta(int numeroCuenta, int saldo, String propietario) {
         this.numeroCuenta = numeroCuenta;
@@ -27,9 +40,10 @@ public abstract class Cuenta {
         this.propietario = propietario;
     }
 
-    public abstract void retirar(int saldo) throws CuentaException;
-    public abstract void consignar(int saldo);
-    public abstract void transferir(int numeroCuenta, int saldo);
+    public abstract int retirar(int saldo) throws CuentaException;
+    public abstract int depositar(int saldo);
+    public abstract List<Cuenta> transferir(Cuenta cuenta, int saldo) throws CuentaException;
+    public abstract void recibir(int saldo);
     public abstract String getTipoCuenta();
 
     public void setTipoCuenta(String tipoCuenta) {
@@ -74,5 +88,13 @@ public abstract class Cuenta {
 
     public void setNumeroRetiros(int numeroRetiros) {
         this.numeroRetiros += numeroRetiros;
+    }
+
+    public int getTransferenciasOtrasCuentas() {
+        return transferenciasOtrasCuentas;
+    }
+
+    public void setTransferenciasOtrasCuentas(int transferenciasOtrasCuentas) {
+        this.transferenciasOtrasCuentas += transferenciasOtrasCuentas;
     }
 }

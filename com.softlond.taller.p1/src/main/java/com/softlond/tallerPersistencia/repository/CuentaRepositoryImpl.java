@@ -12,7 +12,7 @@ public class CuentaRepositoryImpl implements ICuentaRepository {
     public CuentaRepositoryImpl() {
         try {
             DriverManager.registerDriver(new org.sqlite.JDBC());
-            cadenaConexion = "jdbc:sqlite:cuenta.db";
+            cadenaConexion = "jdbc:sqlite:cuentas.db";
             crearTabla();
         } catch (SQLException e) {
             System.out.println("Error al registrar la base de datos " + e.getMessage());
@@ -22,12 +22,13 @@ public class CuentaRepositoryImpl implements ICuentaRepository {
     private void crearTabla() {
         try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
             String sql = "CREATE TABLE IF NOT EXISTS cuenta(" +
-                    "numeroCuenta INTEGER PRIMARY KEY," +
+                    "numeroCuenta INTEGER UNIQUE," +
                     "saldo INTEGER," +
                     "propietario TEXT," +
                     "tipoCuenta TEXT," +
                     "numeroDepositos INTEGER," +
-                    "numeroRetiros INTEGER)";
+                    "numeroRetiros INTEGER," +
+                    "transferenciasOtrasCuentas INTEGER)";
             Statement statement = conexion.createStatement();
             statement.execute(sql);
         } catch (SQLException e) {
@@ -37,7 +38,6 @@ public class CuentaRepositoryImpl implements ICuentaRepository {
 
     @Override
     public Cuenta buscarCuenta(int numeroCuenta) {
-        Cuenta cuenta = null;
         try (Connection conexion = DriverManager.getConnection(cadenaConexion)) {
             String sql = "SELECT * FROM cuenta WHERE numeroCuenta = ?";
             PreparedStatement preparedStatement = conexion.prepareStatement(sql);
@@ -49,24 +49,24 @@ public class CuentaRepositoryImpl implements ICuentaRepository {
                 String tipoCuenta = resultSet.getString("tipoCuenta");
                 int numeroDepositos = resultSet.getInt("numeroDepositos");
                 int numeroRetiros = resultSet.getInt("numeroRetiros");
-                if(tipoCuenta.equals("ahorro")){
-                    cuenta = new CuentaAhorros(numeroCuenta, saldo, propietario);
-                }else{
-                    cuenta = new CuentaCorriente(numeroCuenta, saldo, propietario);
+                int transferenciasOtrasCuentas = resultSet.getInt("transferenciasOtrasCuentas");
+
+                if(tipoCuenta.equals("ahorros")){
+                    return new CuentaAhorros(numeroCuenta, tipoCuenta, saldo, propietario, numeroDepositos, numeroRetiros, transferenciasOtrasCuentas);
+                }else if(tipoCuenta.equals("corriente")){
+                    return new CuentaCorriente(numeroCuenta, tipoCuenta, saldo, propietario, numeroDepositos, numeroRetiros, transferenciasOtrasCuentas);
                 }
             }
-
-            return cuenta;
         } catch (SQLException e) {
             System.out.println("Error al buscar la cuenta" + e.getMessage());
         }
-        return cuenta;
+        return null;
     }
 
     @Override
     public void guardarCuenta(Cuenta cuenta) {
         try(Connection conexion = DriverManager.getConnection(cadenaConexion)){
-            String sql = "INSERT INTO cuenta(numeroCuenta, saldo, propietario, tipoCuenta, numeroDepositos, numeroRetiros) VALUES(?,?,?,?,?,?)";
+            String sql = "INSERT INTO cuenta(numeroCuenta, saldo, propietario, tipoCuenta, numeroDepositos, numeroRetiros,transferenciasOtrasCuentas) VALUES(?,?,?,?,?,?,?)";
             PreparedStatement preparedStatement = conexion.prepareStatement(sql);
             preparedStatement.setInt(1, cuenta.getNumeroCuenta());
             preparedStatement.setInt(2, cuenta.getSaldo());
@@ -74,6 +74,7 @@ public class CuentaRepositoryImpl implements ICuentaRepository {
             preparedStatement.setString(4, cuenta.getTipoCuenta());
             preparedStatement.setInt(5, cuenta.getNumeroDepositos());
             preparedStatement.setInt(6, cuenta.getNumeroRetiros());
+            preparedStatement.setInt(7, cuenta.getTransferenciasOtrasCuentas());
             preparedStatement.execute();
         }catch (SQLException e){
             System.out.println("Error al guardar la cuenta" + e.getMessage());
@@ -81,24 +82,20 @@ public class CuentaRepositoryImpl implements ICuentaRepository {
     }
 
     @Override
-    public void actualizarCuenta(int numeroCuenta, Cuenta cuenta) {
+    public void actualizarCuenta(Cuenta cuenta) {
         try(Connection conexion = DriverManager.getConnection(cadenaConexion)) {
-            String sql = "UPDATE cuenta SET saldo = ?, propietario = ?, tipoCuenta = ?, numeroDepositos = ?, numeroRetiros = ? WHERE numeroCuenta = ?";
+            String sql = "UPDATE cuenta SET saldo = ?, propietario = ?, tipoCuenta = ?, numeroDepositos = ?, numeroRetiros = ?, transferenciasOtrasCuentas = ?  WHERE numeroCuenta = ?";
             PreparedStatement preparedStatement = conexion.prepareStatement(sql);
             preparedStatement.setInt(1, cuenta.getSaldo());
             preparedStatement.setString(2, cuenta.getPropietario());
             preparedStatement.setString(3, cuenta.getTipoCuenta());
             preparedStatement.setInt(4, cuenta.getNumeroDepositos());
             preparedStatement.setInt(5, cuenta.getNumeroRetiros());
-            preparedStatement.setInt(6, numeroCuenta);
+            preparedStatement.setInt(6, cuenta.getTransferenciasOtrasCuentas());
+            preparedStatement.setInt(7, cuenta.getNumeroCuenta());
             preparedStatement.execute();
         }catch (SQLException e){
             System.out.println("Error al actualizar la cuenta" + e.getMessage());
         }
-    }
-
-    @Override
-    public void eliminarCuenta(int numeroCuenta) {
-
     }
 }
